@@ -79,6 +79,7 @@ public class DistChecker : MonoBehaviour
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
             pScript.scorecal += 1;
             Destroy(gameObject);
+            
         }
         // GameObject myPlayer = GameObject.Find("AR Session Origin");
         // SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();

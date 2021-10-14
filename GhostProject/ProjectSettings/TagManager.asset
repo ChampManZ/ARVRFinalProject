@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ghost
   - Selectable
+  - Crucifix
   layers:
   - Default
   - TransparentFX

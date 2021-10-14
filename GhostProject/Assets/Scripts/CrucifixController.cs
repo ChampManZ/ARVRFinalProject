@@ -71,11 +71,19 @@ public class CrucifixController : MonoBehaviour
             Debug.Log("destroy crucifix");
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
-            pScript.ishaveflash += 1;
+            pScript.ishaveflash = 1;
+            DestroyWithTag("Crucifix");
             Destroy(gameObject);
         }
         
 
         
+    }
+    void DestroyWithTag (string destroyTag)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag(destroyTag);
+        foreach (GameObject oneObject in destroyObject)
+            Destroy (oneObject);
     }
 }

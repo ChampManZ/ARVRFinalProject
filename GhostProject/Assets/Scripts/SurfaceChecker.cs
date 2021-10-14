@@ -26,13 +26,14 @@ public class SurfaceChecker : MonoBehaviour
     public int using_crucifix = 0;
     public float crucifix_period = -1;
     public GameObject GhostHunter;
-    public float dummy_ghosttimer = 4;
+    public float dummy_ghosttimer = 10;
     public int ishunting = 0;
     //private float time_spawn;
     void Start()
     {
         //Instantiate(character, placementPose.position, placementPose.rotation);
         placementIndicator.transform.GetComponent<Renderer>().enabled = false;
+        dummy_ghosttimer = 15;
         
         
     }
@@ -96,7 +97,7 @@ public class SurfaceChecker : MonoBehaviour
     }
     public void useCrucifix(){
         if (ishaveflash == 1){
-            ishaveflash -= 1;
+            ishaveflash = 0;
             using_crucifix = 1;
             crucifix_period = 1;
         }
@@ -136,13 +137,15 @@ public class SurfaceChecker : MonoBehaviour
 
             }
             if (crucifix_timer <= 0 && ishaveflash == 0){
-                crucifix_timer = UnityEngine.Random.Range(15,40);
+                crucifix_timer = UnityEngine.Random.Range(4,6);
                 Instantiate(crucifix, placementPose.position, placementPose.rotation);  
             }
-            if (ishunting == 0 && dummy_ghosttimer <= 0){
+            if (ishunting == 0 && dummy_ghosttimer < 0){
                 //crucifix_timer = UnityEngine.Random.Range(15,40);
                 ishunting = 1;
-                Instantiate(GhostHunter, placementPose.position, placementPose.rotation);  
+                Debug.Log("Create Ghost");
+                randomGhostAct();
+                 
 
             }
             
@@ -156,6 +159,23 @@ public class SurfaceChecker : MonoBehaviour
         }else{
             //Debug.Log("Cant Place Ind");
             placementIndicator.SetActive(false);
+        }
+
+    }
+    public void randomGhostAct(){
+        int randAct = UnityEngine.Random.Range(1,4);
+        
+        if (randAct == 1){
+            Debug.Log("Hunt Action");
+            
+            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
+        }else if (randAct == 2){
+            Debug.Log("Appear Action");
+            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
+        }else {
+            Debug.Log("JumpScare Action");
+            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
+
         }
 
     }
