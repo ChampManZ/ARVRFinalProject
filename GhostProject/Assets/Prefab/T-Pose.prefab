@@ -2099,7 +2099,6 @@ GameObject:
   - component: {fileID: 4552172201248643026}
   - component: {fileID: 493099242824150830}
   - component: {fileID: 4237478768521720980}
-  - component: {fileID: -3672478397868477677}
   m_Layer: 0
   m_Name: T-Pose
   m_TagString: Untagged
@@ -2324,24 +2323,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3672478397868477677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7099762118049191698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d866d05496faab0409deaf1bf0ed9c05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghost: {fileID: 3186274933745119641, guid: da6c3f2427c340f4f805f7bda9963665, type: 3}
-  runTime: 0
-  gameTime: 0
-  randomTimeSpawn: []
-  test: 0
-  ghostAppear: {fileID: 0}
 --- !u!1 &7488682742759218160
 GameObject:
   m_ObjectHideFlags: 0
