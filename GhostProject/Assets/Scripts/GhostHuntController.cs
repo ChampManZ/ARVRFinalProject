@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GhostHuntController : MonoBehaviour
 {
-     public GameObject arCamera;
+    public GameObject arCamera;
     private bool timeer_show = false;
     public int hunting = 0;
+    [SerializeField] private float speed = 1;
+    public TMPro.TextMeshProUGUI game_status;
 
     void Start()
     {
@@ -38,14 +40,27 @@ public class GhostHuntController : MonoBehaviour
             timeer_show = true;
             transform.GetComponent<Renderer>().enabled = true;
             hunting = 1;
-
         }
 
         // ** hunting part
-        if (Dist <= 10 && hunting == 1){
+        if (Dist <= 10 && hunting == 1)
+        {
+            // ** for flashing
+            if (Dist <= 3 && hunting == 1)
+            {
 
+            }
+
+            // * Death
+            if (Dist <= 1 && hunting == 1)
+            {
+                game_status.text = "Game Over";
+                speed = 0;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("AR Camera").transform.position, Time.deltaTime * speed);
         }
-        
+
         // ** stop hunting
         if (Dist > 10 && hunting == 1){
             hunting = 3;
@@ -53,8 +68,8 @@ public class GhostHuntController : MonoBehaviour
             Destroy(gameObject);
 
         }
-        
 
+        Debug.Log(Dist);
         
 
         

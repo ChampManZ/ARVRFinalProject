@@ -152,7 +152,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arsubsystems": {
-      "version": "file:/Users/fpswan/Downloads/com.unity.xr.arsubsystems-master",
+      "version": "file:/Users/champthanapat/Downloads/com.unity.xr.arsubsystems-master",
       "depth": 0,
       "source": "local",
       "dependencies": {
