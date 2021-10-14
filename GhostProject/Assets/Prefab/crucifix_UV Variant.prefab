@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &893675982112116765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970463865215028358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cf5adf44fe14495b2bd39ff2f80530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 0}
 --- !u!1001 &8123390412830519767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,6 +24,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac08677f0f02ecf428bb36d2111ec70a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac08677f0f02ecf428bb36d2111ec70a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ac08677f0f02ecf428bb36d2111ec70a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac08677f0f02ecf428bb36d2111ec70a,
         type: 3}
@@ -70,7 +98,13 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ac08677f0f02ecf428bb36d2111ec70a,
         type: 3}
       propertyPath: m_Name
-      value: crucifix_UV
+      value: crucifix_UV Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac08677f0f02ecf428bb36d2111ec70a, type: 3}
+--- !u!1 &8970463865215028358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ac08677f0f02ecf428bb36d2111ec70a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8123390412830519767}
+  m_PrefabAsset: {fileID: 0}

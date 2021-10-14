@@ -11,14 +11,20 @@ public class SurfaceChecker : MonoBehaviour
     // Start is called before the first frame update
     public ARRaycastManager arRayCastMng;
     public TMPro.TextMeshProUGUI scoreCheck;
+    public TMPro.TextMeshProUGUI crucifixStatus;
     public int scorecal = 0;
     public bool canPlace;
     private Pose placementPose;
     public GameObject placementIndicator;
     public GameObject planeMaster;
     public GameObject character;
+    public GameObject crucifix;
     public bool placealt;
     public float timer_spawn = 5;
+    public int ishaveflash = 0;
+    public float crucifix_timer = 15;
+    public int using_crucifix = 0;
+    public float crucifix_period = -1;
     //private float time_spawn;
     void Start()
     {
@@ -32,10 +38,29 @@ public class SurfaceChecker : MonoBehaviour
     void Update()
     {   UpdatePlacementPose();
         UpdatePlacementIndicator();
-        scoreCheck.text = "Collected: "+scorecal;
+        scoreCheck.text = "Collected: "+scorecal + " /10";
+        if (using_crucifix == 0 && ishaveflash == 0){
+            crucifixStatus.text = "Have No Crucifix";
+        }else if(using_crucifix ==0 && ishaveflash == 1){
+            crucifixStatus.text = "Have Unused Crucifix";
+        }
+        else if(using_crucifix ==1){
+            crucifixStatus.text = "Using Crucifix";
+        }
         //placementIndicator.transform.GetComponent<Renderer>().enabled =false;
         if (timer_spawn >= 0){
             timer_spawn -= Time.deltaTime;
+        }
+        if (ishaveflash == 0 && crucifix_timer >= 0){
+            crucifix_timer -= Time.deltaTime;
+
+        }
+        if(crucifix_period >= 0){
+            crucifix_period -= Time.deltaTime;
+        }
+        if(crucifix_period <= 0){
+            using_crucifix = 0;
+            crucifix_period = -1;
         }
         
         Debug.Log("check check check");
@@ -57,6 +82,14 @@ public class SurfaceChecker : MonoBehaviour
             // character.transform.rotation = placementPose.rotation;
 
         }
+    }
+    public void useCrucifix(){
+        if (ishaveflash == 1){
+            ishaveflash -= 1;
+            using_crucifix = 1;
+            crucifix_period = 1;
+        }
+
     }
 
     private void UpdatePlacementPose(){
@@ -88,8 +121,12 @@ public class SurfaceChecker : MonoBehaviour
                 Instantiate(character, placementPose.position, placementPose.rotation);
                 //Instantiate(character, placementIndicator.transform.position, placementIndicator.transform.rotation);
                 //Instantiate(character, planeMaster.transform.position, planeMaster.transform.rotation);
-                timer_spawn = 5;
+                timer_spawn = UnityEngine.Random.Range(20,50);
 
+            }
+            if (crucifix_timer <= 0 && ishaveflash == 0){
+                crucifix_timer = UnityEngine.Random.Range(15,40);
+                Instantiate(crucifix, placementPose.position, placementPose.rotation);  
             }
             
             if (placealt == false)
