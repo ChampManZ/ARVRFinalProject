@@ -15,14 +15,10 @@ public class DistChecker : MonoBehaviour
     //public float countDist = 0;
     void Start()
     {
+        // ** make reference from object hierchy
         arCamera = GameObject.Find("AR Camera");
+        // ** make obj invisable but still active
         transform.GetComponent<Renderer>().enabled = false;
-        
-        
-        //distCheck.text = "Hello Distance...";
-        // float Dist = Vector3.Distance(Camera.main.transform.position,transform.position);
-        // Debug.Log("Dist is: "+ Dist);
-        // distCheck.text = "Dist: "+ Dist;
         
     }
 
@@ -39,7 +35,11 @@ public class DistChecker : MonoBehaviour
         Debug.Log("brabrabrbarb*****");
         // float Dist = Vector3.Distance(Camera.main.transform.position,me.transform.position);
         
+        // ** get distance between arcam and self
         float Dist = Vector3.Distance(arCamera.transform.position,transform.position);
+
+
+
         // if (Dist < 5){
         //     transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+1);
         // }
@@ -59,6 +59,9 @@ public class DistChecker : MonoBehaviour
 
         //}
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+1);
+
+
+
         if (Dist < 2 && timeer_show == false){
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+1);
         }
@@ -67,14 +70,22 @@ public class DistChecker : MonoBehaviour
             transform.GetComponent<Renderer>().enabled = true;
 
         }
+        
 
         if (Dist < 1 && timeer_show == true){
             Debug.Log("destroy item");
+            // ** get public variables
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
             pScript.scorecal += 1;
             Destroy(gameObject);
         }
+        // GameObject myPlayer = GameObject.Find("AR Session Origin");
+        // SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
+
+        // if(Dist <= 3 && pScript.using_crucifix == 1){
+
+        // }
         
 
         

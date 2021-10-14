@@ -25,6 +25,9 @@ public class SurfaceChecker : MonoBehaviour
     public float crucifix_timer = 15;
     public int using_crucifix = 0;
     public float crucifix_period = -1;
+    public GameObject GhostHunter;
+    public float dummy_ghosttimer = 4;
+    public int ishunting = 0;
     //private float time_spawn;
     void Start()
     {
@@ -62,8 +65,16 @@ public class SurfaceChecker : MonoBehaviour
             using_crucifix = 0;
             crucifix_period = -1;
         }
+        if (ishunting == 0 && dummy_ghosttimer >= 0){
+            dummy_ghosttimer -= Time.deltaTime;
+        }
         
         Debug.Log("check check check");
+        if (scorecal >= 10){
+            scorecal = 10;
+            Debug.Log("win");
+            
+        }
         
 
         
@@ -127,6 +138,12 @@ public class SurfaceChecker : MonoBehaviour
             if (crucifix_timer <= 0 && ishaveflash == 0){
                 crucifix_timer = UnityEngine.Random.Range(15,40);
                 Instantiate(crucifix, placementPose.position, placementPose.rotation);  
+            }
+            if (ishunting == 0 && dummy_ghosttimer <= 0){
+                //crucifix_timer = UnityEngine.Random.Range(15,40);
+                ishunting = 1;
+                Instantiate(GhostHunter, placementPose.position, placementPose.rotation);  
+
             }
             
             if (placealt == false)

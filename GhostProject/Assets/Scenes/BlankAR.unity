@@ -924,6 +924,10 @@ MonoBehaviour:
   crucifix_timer: 15
   using_crucifix: 0
   crucifix_period: -1
+  GhostHunter: {fileID: 6192293504540005928, guid: e4d65a04cd7f3402b9c42e5572fd67fb,
+    type: 3}
+  dummy_ghosttimer: 4
+  ishunting: 0
 --- !u!114 &1659859601
 MonoBehaviour:
   m_ObjectHideFlags: 0
