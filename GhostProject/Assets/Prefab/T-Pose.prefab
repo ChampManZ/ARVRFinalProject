@@ -2160,6 +2160,11 @@ MonoBehaviour:
   speed: 1
   stunt_time: 6
   scream_before_hunt: 0
+  ghostSFX:
+  - {fileID: 3801544963677222200, guid: da6c3f2427c340f4f805f7bda9963665, type: 3}
+  - {fileID: 8609870052008181079, guid: 6794b434d1b6de043855126d74ee9975, type: 3}
+  - {fileID: 8092266726296386695, guid: 99a03a85484db114597eced9ee42f11b, type: 3}
+  - {fileID: 6353983351283668615, guid: 719d99948c8d07848b174ba6af2a12ce, type: 3}
 --- !u!136 &4237478768521720980
 CapsuleCollider:
   m_ObjectHideFlags: 0

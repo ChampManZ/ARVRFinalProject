@@ -13,6 +13,11 @@ public class GhostHuntController : MonoBehaviour
     //public TMPro.TextMeshProUGUI dist_text;
     //public GameObject textcall;
 
+    public AudioSource[] ghostSFX;
+    private bool playHuntSFXOnce;
+    private bool playScreamSFXOnce;
+    private bool playLostSFXOnce;
+
     void Start()
     {
         // ** make reference from object hierchy
@@ -72,28 +77,42 @@ public class GhostHuntController : MonoBehaviour
         // ** hunting part
         if (Dist <= 7 && hunting == 1)
         {
-            Debug.Log("hunting to you");
-            Debug.Log(Dist);
-            
-            if (Dist <= 1 && hunting == 1)
+            if (playHuntSFXOnce)
             {
-                //game_status.text = "Game Over";
-                hunting = 3;
-                speed = 0;
-                Destroy(gameObject);
-                //Debug.Log(Dist);
-            }
-            else if (Dist <= 3 && hunting == 1 && pScript.using_crucifix == 1)
-            {
+                Debug.Log("hunting to you");
                 Debug.Log(Dist);
-                hunting = 4;
 
-                
-            }
-            else{
-                Debug.Log(Dist);
-                Debug.Log("still moving to you");
-                transform.position = Vector3.MoveTowards(transform.position, arCamera.transform.position, Time.deltaTime * speed);
+                if (Dist <= 1 && hunting == 1)
+                {
+                    //game_status.text = "Game Over";
+                    hunting = 3;
+                    speed = 0;
+                    Destroy(gameObject);
+                    if (playLostSFXOnce)
+                    {
+                        ghostSFX[3].Play();
+                        playLostSFXOnce = false;
+                    }
+                    //Debug.Log(Dist);
+                }
+                else if (Dist <= 3 && hunting == 1 && pScript.using_crucifix == 1)
+                {
+                    Debug.Log(Dist);
+                    hunting = 4;
+                    if (playScreamSFXOnce)
+                    {
+                        ghostSFX[2].Play();
+                        playScreamSFXOnce = false;
+                    }
+                }
+                else
+                {
+                    Debug.Log(Dist);
+                    Debug.Log("still moving to you");
+                    transform.position = Vector3.MoveTowards(transform.position, arCamera.transform.position, Time.deltaTime * speed);
+                    ghostSFX[1].Play();
+                }
+                playHuntSFXOnce = false;
             }
         }
 
@@ -106,7 +125,10 @@ public class GhostHuntController : MonoBehaviour
                 pScript.ishunting = 0;
                 pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40);
                 Destroy(gameObject);
-                
+
+                playHuntSFXOnce = true;
+                playScreamSFXOnce = true;
+                playLostSFXOnce = true;
             }  
 
         }

@@ -12,6 +12,8 @@ public class Ghost : MonoBehaviour
     [SerializeField] private int gameTime;
     public float[] randomTimeSpawn;
     public int test = 0;
+    [SerializeField] AudioSource ghostAppear;
+    private bool playAppearOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -32,30 +34,56 @@ public class Ghost : MonoBehaviour
 
         if (randomTimeSpawn[0] == gameTime)
         {
+            if (playAppearOnce)
+            {
+                ghostAppear.Play();
+                playAppearOnce = false;
+            }
             ghost.SetActive(true);
         }
 
         else if (randomTimeSpawn[1] == gameTime)
         {
+            if (playAppearOnce)
+            {
+                ghostAppear.Play();
+                playAppearOnce = false;
+            }
             ghost.SetActive(true);
         }
 
         else if (randomTimeSpawn[2] == gameTime)
         {
+            if (playAppearOnce)
+            {
+                ghostAppear.Play();
+                playAppearOnce = false;
+            }
             ghost.SetActive(true);
         }
 
         else if (randomTimeSpawn[3] == gameTime)
         {
+            if (playAppearOnce)
+            {
+                ghostAppear.Play();
+                playAppearOnce = false;
+            }
             ghost.SetActive(true);
         }
 
         else if (randomTimeSpawn[4] == gameTime)
         {
+            if (playAppearOnce)
+            {
+                ghostAppear.Play();
+                playAppearOnce = false;
+            }
             ghost.SetActive(true);
         } else
         {
             ghost.SetActive(false);
+            playAppearOnce = true;
         }
     }
 }
