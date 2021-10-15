@@ -22,6 +22,11 @@ public class GhostHuntController : MonoBehaviour
     public AudioSource HuntSound;
     public AudioClip init_Scream_s;
     public AudioClip stunt_Scream_s;
+    public GameObject initPref;
+    public GameObject stuntPref;
+    public int haveplay =0;
+    public int haveplay_stunt= 0;
+    
     
 
 
@@ -53,6 +58,7 @@ public class GhostHuntController : MonoBehaviour
             hunting = 1;
             stunt_time = 7;
             ghostAnim.SetInteger("HuntAct", 0);
+            haveplay_stunt = 0;
 
         }
 
@@ -86,7 +92,12 @@ public class GhostHuntController : MonoBehaviour
             ghostAnim.SetInteger("HuntAct", 1);
             Debug.Log("can hunt now 4");
             initialScream = true;
-            HuntSound.PlayOneShot(init_Scream_s);
+        
+            //HuntSound.PlayOneShot(init_Scream_s);
+            if (haveplay == 0){
+                Instantiate(initPref);
+                haveplay = 1;
+            }
             //hunting = 1;
             Debug.Log("can hunt now 5");
         }
@@ -96,6 +107,7 @@ public class GhostHuntController : MonoBehaviour
         if (scream_timer < 0 && initialScream == true){
             hunting = 1;
             initialScream = false;
+            haveplay = 0;
         }
 
         // ** hunting part
@@ -125,7 +137,13 @@ public class GhostHuntController : MonoBehaviour
                     Debug.Log(Dist);
                     hunting = 4;
                     ghostAnim.SetInteger("HuntAct", 2);
-                    HuntSound.PlayOneShot(stunt_Scream_s);
+                    if (haveplay_stunt == 0){
+                        Instantiate(stuntPref);
+                        haveplay_stunt =1;
+
+                    }
+                    
+                    //HuntSound.PlayOneShot(stunt_Scream_s);
 
                     // if (playScreamSFXOnce)
                     // {

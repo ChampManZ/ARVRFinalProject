@@ -2170,6 +2170,12 @@ MonoBehaviour:
   HuntSound: {fileID: 6362489578231782889}
   init_Scream_s: {fileID: 8300000, guid: 804c0c2904eb8044fa408a4f0f5eb266, type: 3}
   stunt_Scream_s: {fileID: 8300000, guid: b620897d476f2f44cb154c74050eaa25, type: 3}
+  initPref: {fileID: 4730371020713244599, guid: 703b1b11b9bf14195a9475f79c4d66d3,
+    type: 3}
+  stuntPref: {fileID: 9043868568188313124, guid: b2db4472fb9fd44b5b7ec84f95599ed4,
+    type: 3}
+  haveplay: 0
+  haveplay_stunt: 0
 --- !u!136 &4237478768521720980
 CapsuleCollider:
   m_ObjectHideFlags: 0

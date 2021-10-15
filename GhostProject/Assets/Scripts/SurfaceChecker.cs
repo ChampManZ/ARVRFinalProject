@@ -32,12 +32,18 @@ public class SurfaceChecker : MonoBehaviour
     public AudioClip flashsound;
     public AudioClip grabsound;
     public int grabInst = 0;
+    public AudioClip test1;
+    public GameObject flashPRef;
+    public GameObject grabPref;
+    public GameObject flashscreen;
+    public bool flashingS = false;
     //private float time_spawn;
     void Start()
     {
         //Instantiate(character, placementPose.position, placementPose.rotation);
         placementIndicator.transform.GetComponent<Renderer>().enabled = false;
         dummy_ghosttimer = 15;
+        //playerSource.PlayOneShot(test1);
         
         
     }
@@ -48,10 +54,13 @@ public class SurfaceChecker : MonoBehaviour
         UpdatePlacementIndicator();
 
 
+    
+
         scoreCheck.text = "Collected: "+scorecal + " /10";
 
         if(grabInst ==1){
-            playerSource.PlayOneShot(grabsound);
+            Instantiate(grabPref);
+            //playerSource.PlayOneShot(grabsound);
             grabInst = 0;
         }
 
@@ -89,6 +98,14 @@ public class SurfaceChecker : MonoBehaviour
             
         }
         
+        if (flashingS == true){
+            flashscreen.SetActive(true);
+            flashingS = false;
+        }
+        if (flashingS == false){
+            flashscreen.SetActive(false);
+        }
+        
 
         
 
@@ -108,8 +125,11 @@ public class SurfaceChecker : MonoBehaviour
         }
     }
     public void useCrucifix(){
+        //playerSource.PlayOneShot(test1);
+        //playerSource.PlayOneShot(flashsound);
         if (ishaveflash == 1){
-            playerSource.PlayOneShot(flashsound);
+            Instantiate(flashPRef);
+            //playerSource.PlayOneShot(flashsound);
             ishaveflash = 0;
             using_crucifix = 1;
             crucifix_period = 1;
