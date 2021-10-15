@@ -22,6 +22,7 @@ public class GhostHuntController : MonoBehaviour
     public AudioSource HuntSound;
     public AudioClip init_Scream_s;
     public AudioClip stunt_Scream_s;
+    
 
 
     void Start()

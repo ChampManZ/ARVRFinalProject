@@ -1456,8 +1456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 0}
-  omasource: {fileID: -5781477233927799865}
-  omagrab: {fileID: 8300000, guid: b7f3b10731fc9e14383dcf431a9f86a8, type: 3}
 --- !u!82 &-5781477233927799865
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1470,7 +1468,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.843
+  m_Volume: 0.51
   m_Pitch: 1
   Loop: 0
   Mute: 0
