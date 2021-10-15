@@ -9,6 +9,8 @@ public class DistChecker : MonoBehaviour
     public GameObject arCamera;
     //priva bool show_time = false;
     private bool timeer_show = false;
+    //public AudioSource omasource;
+    //public AudioClip omagrab;
     //private float spawn_time = 5; 
     //public GameObject keyitem;
     //public GameObject me;
@@ -78,8 +80,10 @@ public class DistChecker : MonoBehaviour
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
             pScript.scorecal += 1;
+            pScript.grabInst =1;
+            //omasource.PlayOneShot(omagrab);
             Destroy(gameObject);
-            
+
         }
         // GameObject myPlayer = GameObject.Find("AR Session Origin");
         // SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();

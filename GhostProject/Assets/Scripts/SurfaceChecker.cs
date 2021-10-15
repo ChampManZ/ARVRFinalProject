@@ -28,6 +28,10 @@ public class SurfaceChecker : MonoBehaviour
     public GameObject GhostHunter;
     public float dummy_ghosttimer = 10;
     public int ishunting = 0;
+    public AudioSource playerSource;
+    public AudioClip flashsound;
+    public AudioClip grabsound;
+    public int grabInst = 0;
     //private float time_spawn;
     void Start()
     {
@@ -42,7 +46,15 @@ public class SurfaceChecker : MonoBehaviour
     void Update()
     {   UpdatePlacementPose();
         UpdatePlacementIndicator();
+
+
         scoreCheck.text = "Collected: "+scorecal + " /10";
+
+        if(grabInst ==1){
+            playerSource.PlayOneShot(grabsound);
+            grabInst = 0;
+        }
+
         if (using_crucifix == 0 && ishaveflash == 0){
             crucifixStatus.text = "Have No Crucifix";
         }else if(using_crucifix ==0 && ishaveflash == 1){
@@ -97,6 +109,7 @@ public class SurfaceChecker : MonoBehaviour
     }
     public void useCrucifix(){
         if (ishaveflash == 1){
+            playerSource.PlayOneShot(flashsound);
             ishaveflash = 0;
             using_crucifix = 1;
             crucifix_period = 1;

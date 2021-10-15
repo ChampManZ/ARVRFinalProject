@@ -8,12 +8,16 @@ public class CrucifixController : MonoBehaviour
     public GameObject arCamera;
     //priva bool show_time = false;
     private bool timeer_show = false;
+    //public AudioSource crusource;
+    //public AudioClip crugrab;
+
     //private float spawn_time = 5; 
     //public GameObject keyitem;
     //public GameObject me;
     //public float countDist = 0;
     void Start()
     {
+        //crusource.PlayOneShot(crugrab);
         arCamera = GameObject.Find("AR Camera");
         transform.GetComponent<Renderer>().enabled = false;
         
@@ -72,6 +76,8 @@ public class CrucifixController : MonoBehaviour
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
             pScript.ishaveflash = 1;
+            pScript.grabInst =1;
+            //crusource.PlayOneShot(crugrab);
             DestroyWithTag("Crucifix");
             Destroy(gameObject);
         }
