@@ -24,7 +24,7 @@ public class GhostHuntController : MonoBehaviour
     public AudioClip stunt_Scream_s;
     public GameObject initPref;
     public GameObject stuntPref;
-    public int haveplay =0;
+    public int haveplay = 0;
     public int haveplay_stunt= 0;
     
     
