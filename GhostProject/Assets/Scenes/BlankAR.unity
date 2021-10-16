@@ -1173,7 +1173,6 @@ GameObject:
   - component: {fileID: 1659859601}
   - component: {fileID: 1659859603}
   - component: {fileID: 1659859600}
-  - component: {fileID: 1659859604}
   - component: {fileID: 1659859605}
   m_Layer: 0
   m_Name: AR Session Origin
@@ -1255,6 +1254,10 @@ MonoBehaviour:
     type: 3}
   flashscreen: {fileID: 539094686}
   flashingS: 0
+  haveLost: 0
+  haveWin: 0
+  gojumpLost: JumpLost
+  goghostdie: GhostDie
 --- !u!114 &1659859601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1297,22 +1300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PointCloudPrefab: {fileID: 2321017175557395448, guid: 337b2a7ddbb64bb4c82d3b7f9b38ef88,
     type: 3}
---- !u!114 &1659859604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659859597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221f2fe3ff6c84b4491d6c30f6cdf759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectableTag: Selectable
-  highlightMaterial: {fileID: 2100000, guid: 5a1cc2ca1e55d4ed6aad1635aaf6b205, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: 58065d7023aed4216a7e6b2b80381c60, type: 2}
-  _selection: {fileID: 0}
 --- !u!82 &1659859605
 AudioSource:
   m_ObjectHideFlags: 0

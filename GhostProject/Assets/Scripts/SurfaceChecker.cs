@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.Experimental.XR;
+using UnityEngine.SceneManagement;
 
 
 
@@ -37,6 +38,10 @@ public class SurfaceChecker : MonoBehaviour
     public GameObject grabPref;
     public GameObject flashscreen;
     public bool flashingS = false;
+    public bool haveLost = false;
+    public bool haveWin = false;
+    [SerializeField] private string gojumpLost;
+    [SerializeField] private string goghostdie;
     //private float time_spawn;
     void Start()
     {
@@ -52,6 +57,15 @@ public class SurfaceChecker : MonoBehaviour
     void Update()
     {   UpdatePlacementPose();
         UpdatePlacementIndicator();
+        
+        if (haveLost == true){
+            SceneManager.LoadScene(gojumpLost);
+            haveLost = false;
+        }
+        if (haveWin == true){
+            SceneManager.LoadScene(goghostdie);
+            haveWin = false;
+        }
 
 
     
@@ -95,6 +109,7 @@ public class SurfaceChecker : MonoBehaviour
         if (scorecal >= 10){
             scorecal = 10;
             Debug.Log("win");
+            haveWin = true;
             
         }
         

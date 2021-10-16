@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostHuntController : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GhostHuntController : MonoBehaviour
     public GameObject stuntPref;
     public int haveplay = 0;
     public int haveplay_stunt= 0;
+    
     
     
 
@@ -125,6 +127,7 @@ public class GhostHuntController : MonoBehaviour
                     hunting = 3;
                     speed = 0;
                     Destroy(gameObject);
+                    pScript.haveLost = true;
                     // if (playLostSFXOnce)
                     // {
                     //     ghostSFX[3].Play();

@@ -6,11 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: fbb1c0c044a374b6581dbf7e1caba116
+  - enabled: 1
     path: Assets/Scenes/storyteller.unity
     guid: ed5cabd959aef4a0a9f37986384bdd88
   - enabled: 1
     path: Assets/Scenes/BlankAR.unity
     guid: 6bdce89659816455b9f906fc62d19910
+  - enabled: 1
+    path: Assets/Scenes/GhostDie.unity
+    guid: b2618e634085b48199f8c59839b3915b
+  - enabled: 1
+    path: Assets/Scenes/JumpLost.unity
+    guid: a698d9865143649d983627af5943cf20
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 7d7550437e76c4dbab6beea10942e3c5
+  - enabled: 1
+    path: Assets/Scenes/LostScene.unity
+    guid: 6c5bb43a6cb1f4c7fb6af316c68c453b
   - enabled: 1
     path: Assets/ExampleAssets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
