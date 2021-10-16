@@ -31,7 +31,7 @@ public class Intro : MonoBehaviour
 
         if (timer >= 1)
         {
-            introText.text = "Once upon a time.";
+            introText.text = "Long time ago.";
         }
         
         if (timer >= 4)
@@ -42,7 +42,7 @@ public class Intro : MonoBehaviour
 
         if (timer >= 9)
         {
-            introText.text = "Every year they will celebrate their anniversary in Japan and the man will always buy Maomori for her.";
+            introText.text = "Every year they will celebrate their anniversary in Japan and the man will always buy Omamori for her.";
         }
 
         if (timer >= 13)
