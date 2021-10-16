@@ -15,7 +15,8 @@ public class Intro : MonoBehaviour
     // [SerializeField] Material sceneImage5;
     // [SerializeField] Material sceneImage6;
     [SerializeField] float timer = 0;
-    [SerializeField] Button startGame;
+    [SerializeField] private string ingameName;
+    // [SerializeField] Button startGame;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,6 @@ public class Intro : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
-        if (timer >= 0)
-        {
-            startGame.gameObject.SetActive(false);
-        }
 
         if (timer >= 1)
         {
@@ -87,7 +83,7 @@ public class Intro : MonoBehaviour
         if (timer >= 40)
         {
             introText.text = "";
-            startGame.gameObject.SetActive(true);
+            SceneManager.LoadScene(ingameName);
         }
     }
 }

@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introText: {fileID: 1895702673}
   timer: 0
-  startGame: {fileID: 314253919}
+  ingameName: BlankAR
 --- !u!1 &266550614
 GameObject:
   m_ObjectHideFlags: 0
