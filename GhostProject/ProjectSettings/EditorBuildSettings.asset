@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/BlankAR.unity
     guid: 6bdce89659816455b9f906fc62d19910
   - enabled: 1
-    path: Assets/Scenes/GhostDie.unity
-    guid: b2618e634085b48199f8c59839b3915b
-  - enabled: 1
     path: Assets/Scenes/JumpLost.unity
     guid: a698d9865143649d983627af5943cf20
+  - enabled: 1
+    path: Assets/Scenes/GhostDie.unity
+    guid: b2618e634085b48199f8c59839b3915b
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 7d7550437e76c4dbab6beea10942e3c5
