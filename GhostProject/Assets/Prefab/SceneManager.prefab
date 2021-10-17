@@ -46,3 +46,4 @@ MonoBehaviour:
   toStoryTeller: storyteller
   toReplay: BlankAR
   toMenu: Menu
+  toInstruct: instruction

@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LostScene.unity
     guid: 6c5bb43a6cb1f4c7fb6af316c68c453b
   - enabled: 1
+    path: Assets/Scenes/instruction.unity
+    guid: a5c1166889a7d453e932a1e8a80542b4
+  - enabled: 1
     path: Assets/ExampleAssets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:

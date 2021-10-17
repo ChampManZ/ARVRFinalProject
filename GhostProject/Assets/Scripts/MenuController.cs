@@ -19,6 +19,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private string toStoryTeller;
     [SerializeField] private string toReplay;
     [SerializeField] private string toMenu;
+    [SerializeField] private string toInstruct;
 
     public void GoStory()
     {
@@ -31,5 +32,9 @@ public class MenuController : MonoBehaviour
     public void GoMenu()
     {
         SceneManager.LoadScene(toMenu);
+    }
+    public void GoInstruct()
+    {
+        SceneManager.LoadScene(toInstruct);
     }
 }
