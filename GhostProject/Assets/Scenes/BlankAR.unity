@@ -1258,6 +1258,12 @@ MonoBehaviour:
   haveWin: 0
   gojumpLost: JumpLost
   goghostdie: GhostDie
+  cloverstate: 0
+  cloverrate: 1
+  chestappear: 0
+  biblestate: 0
+  bible_timer: 60
+  clover_timer: 60
 --- !u!114 &1659859601
 MonoBehaviour:
   m_ObjectHideFlags: 0
