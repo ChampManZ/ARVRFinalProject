@@ -42,6 +42,12 @@ public class SurfaceChecker : MonoBehaviour
     public bool haveWin = false;
     [SerializeField] private string gojumpLost;
     [SerializeField] private string goghostdie;
+    public int cloverstate = 0;
+    public float cloverrate = 1f;
+    public int chestappear = 0;
+    public int biblestate = 0;
+    public float bible_timer = 60f;
+    public float clover_timer = 60f;
     //private float time_spawn;
     void Start()
     {
@@ -66,7 +72,23 @@ public class SurfaceChecker : MonoBehaviour
             SceneManager.LoadScene(goghostdie);
             haveWin = false;
         }
+        if(cloverstate == 0){
+            cloverrate = 1f;
+        }else{
+            cloverrate = 1.7f;
+        }
 
+        if (cloverstate == 1 && clover_timer > 0){
+            clover_timer -= Time.deltaTime;
+        }else{
+            cloverstate = 0;
+            //clover_timer = 60f;
+        }
+        if(bible_timer >0 && biblestate == 1){
+            bible_timer -= Time.deltaTime;
+        }else{
+            biblestate =0;
+        }
 
     
 
@@ -88,10 +110,10 @@ public class SurfaceChecker : MonoBehaviour
         }
         //placementIndicator.transform.GetComponent<Renderer>().enabled =false;
         if (timer_spawn >= 0){
-            timer_spawn -= Time.deltaTime;
+            timer_spawn -= Time.deltaTime*cloverrate;
         }
         if (ishaveflash == 0 && crucifix_timer >= 0){
-            crucifix_timer -= Time.deltaTime;
+            crucifix_timer -= Time.deltaTime*cloverrate;
 
         }
         if(crucifix_period >= 0){
@@ -102,7 +124,9 @@ public class SurfaceChecker : MonoBehaviour
             crucifix_period = -1;
         }
         if (ishunting == 0 && dummy_ghosttimer >= 0){
+            if (biblestate == 0){
             dummy_ghosttimer -= Time.deltaTime;
+            }
         }
         
         Debug.Log("check check check");
