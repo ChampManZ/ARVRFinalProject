@@ -92,7 +92,7 @@ public class GhostAppearController : MonoBehaviour
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
             pScript.ishunting = 0;
-            pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40);
+            pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40-pScript.reduce_spawn);
             Destroy(gameObject);
             
 

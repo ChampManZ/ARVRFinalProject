@@ -50,6 +50,9 @@ public class SurfaceChecker : MonoBehaviour
     public float clover_timer = 60f;
     public GameObject GhostAppear;
     public GameObject MiniJumpS;
+    public float life_timer;
+    public int ext_hunt = 0;
+    public int reduce_spawn = 0;
     //private float time_spawn;
     void Start()
     {
@@ -95,6 +98,19 @@ public class SurfaceChecker : MonoBehaviour
     
 
         scoreCheck.text = "Collected: "+scorecal + " /10";
+
+
+        if (scorecal >= 8){
+            ext_hunt = 5;
+            reduce_spawn = 20;
+        }
+        else if(scorecal >= 7){
+            ext_hunt = 2;
+            reduce_spawn = 15;
+        }else if (scorecal >= 5){
+            ext_hunt = 1;
+            reduce_spawn = 10;
+        }
 
         if(grabInst ==1){
             Instantiate(grabPref);
@@ -237,19 +253,22 @@ public class SurfaceChecker : MonoBehaviour
 
     }
     public void randomGhostAct(){
-        int randAct = UnityEngine.Random.Range(1,4);
+        int randAct = UnityEngine.Random.Range(1,4+ext_hunt);
         Debug.Log("random act of ghost event: "+ randAct);
         
         if (randAct == 1){
-            Debug.Log("Hunt Action");
             
-            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
+
+            Debug.Log("JumpScare Action");
+            life_timer = 3f;
+            Instantiate(MiniJumpS, placementPose.position, placementPose.rotation); 
         }else if (randAct == 2){
             Debug.Log("Appear Action");
             Instantiate(GhostAppear, placementPose.position, placementPose.rotation); 
         }else {
-            Debug.Log("JumpScare Action");
-            Instantiate(MiniJumpS, placementPose.position, placementPose.rotation); 
+            Debug.Log("Hunt Action");
+            
+            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
             //Instantiate(GhostAppear, placementPose.position, placementPose.rotation); 
 
         }

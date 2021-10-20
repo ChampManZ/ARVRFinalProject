@@ -30,6 +30,7 @@ public class GhostHuntController : MonoBehaviour
     
     
     
+    
 
 
     void Start()
@@ -181,7 +182,7 @@ public class GhostHuntController : MonoBehaviour
                 hunting = 3;
                 Debug.Log("destroy item");
                 pScript.ishunting = 0;
-                pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40);
+                pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40-pScript.reduce_spawn);
                 Destroy(gameObject);
 
                 //playHuntSFXOnce = true;

@@ -58,9 +58,9 @@ public class RandJumpController : MonoBehaviour
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
             pScript.ishunting = 0;
-            pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40);
-            js_one.SetActive(false);
-            js_two.SetActive(false);
+            pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40-pScript.reduce_spawn);
+            //js_one.SetActive(false);
+            //js_two.SetActive(false);
             Destroy(gameObject);
         }
         }
