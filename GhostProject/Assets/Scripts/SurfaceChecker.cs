@@ -238,6 +238,7 @@ public class SurfaceChecker : MonoBehaviour
     }
     public void randomGhostAct(){
         int randAct = UnityEngine.Random.Range(1,4);
+        Debug.Log("random act of ghost event: "+ randAct);
         
         if (randAct == 1){
             Debug.Log("Hunt Action");
@@ -249,6 +250,7 @@ public class SurfaceChecker : MonoBehaviour
         }else {
             Debug.Log("JumpScare Action");
             Instantiate(MiniJumpS, placementPose.position, placementPose.rotation); 
+            //Instantiate(GhostAppear, placementPose.position, placementPose.rotation); 
 
         }
 

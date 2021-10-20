@@ -13,6 +13,7 @@ public class GhostAppearController : MonoBehaviour
     public int rand_action = 1;
     public GameObject appearSound_one;
     public GameObject appearSound_two;
+    public int playSound;
     //public AudioSource omasource;
     //public AudioClip omagrab;
     //private float spawn_time = 5; 
@@ -24,7 +25,9 @@ public class GhostAppearController : MonoBehaviour
         Debug.Log("appear created");
         // ** make reference from object hierchy
         arCamera = GameObject.Find("AR Camera");
+        transform.Rotate(0,180,0);
         rand_action = UnityEngine.Random.Range(0, 2);
+        playSound= 0;
         // ** make obj invisable but still active
         //transform.GetComponent<Renderer>().enabled = false;
         
@@ -33,6 +36,7 @@ public class GhostAppearController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("in appear update");
     
         float Dist = Vector3.Distance(arCamera.transform.position,transform.position);
 
@@ -51,12 +55,19 @@ public class GhostAppearController : MonoBehaviour
         }
 
         if(have_act == true){
+            Debug.Log("appearing now");
             have_act = false;
-            ghostApAnim.SetInteger("setAct", rand_action);
-            if(rand_action == 0){
+            if (playSound== 0){
+                ghostApAnim.SetInteger("setAct", rand_action);
+            }
+            if(rand_action == 0 && playSound == 0){
+                Debug.Log("create sound 1");
                 Instantiate(appearSound_one);
-            }else{
+                playSound = 1;
+            }else if (rand_action == 1 && playSound == 0){
+                Debug.Log("create sound 2");
                 Instantiate(appearSound_two);
+                playSound = 1;
             }
 
             

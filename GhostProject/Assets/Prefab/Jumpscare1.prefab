@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1214801984530459055}
   - component: {fileID: 1052692916969199305}
   - component: {fileID: 2571222105794160874}
+  - component: {fileID: -5793886983382778500}
   m_Layer: 5
   m_Name: Jumpscare1
   m_TagString: Untagged
@@ -272,3 +273,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5793886983382778500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692859730681191139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ea4b40bf2854e988babb167c77f294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life_time: 3

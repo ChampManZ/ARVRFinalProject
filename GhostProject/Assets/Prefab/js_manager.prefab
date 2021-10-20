@@ -44,7 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump_timer: 3
-  js_one: {fileID: 0}
-  js_two: {fileID: 0}
+  js_one: {fileID: 1692859730681191139, guid: 6a14aa1ae7d397948beae44a145c2bb6, type: 3}
+  js_two: {fileID: 3015619511475893702, guid: 5fdd98680fff41545892849f151490b2, type: 3}
   js_sound: {fileID: 8325415880802738497, guid: 7136c570337704b26bd46e292a6e011e,
     type: 3}
+  already_act: 0
+  canCountdown: 0
+  rand_act: 0
+  ald_show: 0
+  plate_master: {fileID: 0}
