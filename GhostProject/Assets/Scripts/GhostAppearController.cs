@@ -9,6 +9,10 @@ public class GhostAppearController : MonoBehaviour
     private bool timeer_show = false;
     public float show_time = 0;
     public bool have_act = false;
+    public Animator ghostApAnim;
+    public int rand_action = 1;
+    public GameObject appearSound_one;
+    public GameObject appearSound_two;
     //public AudioSource omasource;
     //public AudioClip omagrab;
     //private float spawn_time = 5; 
@@ -17,8 +21,10 @@ public class GhostAppearController : MonoBehaviour
     //public float countDist = 0;
     void Start()
     {
+        Debug.Log("appear created");
         // ** make reference from object hierchy
         arCamera = GameObject.Find("AR Camera");
+        rand_action = UnityEngine.Random.Range(0, 2);
         // ** make obj invisable but still active
         //transform.GetComponent<Renderer>().enabled = false;
         
@@ -46,6 +52,13 @@ public class GhostAppearController : MonoBehaviour
 
         if(have_act == true){
             have_act = false;
+            ghostApAnim.SetInteger("setAct", rand_action);
+            if(rand_action == 0){
+                Instantiate(appearSound_one);
+            }else{
+                Instantiate(appearSound_two);
+            }
+
             
         }
         

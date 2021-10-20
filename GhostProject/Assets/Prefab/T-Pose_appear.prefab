@@ -2236,6 +2236,7 @@ GameObject:
   - component: {fileID: 88443823377023673}
   - component: {fileID: 349076468457628159}
   - component: {fileID: 7375415973387634818}
+  - component: {fileID: 8966240308664484558}
   m_Layer: 0
   m_Name: T-Pose_appear
   m_TagString: Untagged
@@ -2390,6 +2391,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8966240308664484558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670336034506179193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924a00b6fe65642edb90b42d5628bfd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 0}
+  show_time: 0
+  have_act: 0
+  ghostApAnim: {fileID: 88443823377023673}
+  rand_action: 1
+  appearSound_one: {fileID: 8900458291745689684, guid: cfe26e01260d34e779214ad35fa2d16d,
+    type: 3}
+  appearSound_two: {fileID: 4618033270400083243, guid: b6c502cc6421f4ab49a121914c216925,
+    type: 3}
 --- !u!1 &6791587401926604314
 GameObject:
   m_ObjectHideFlags: 0

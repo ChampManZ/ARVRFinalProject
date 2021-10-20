@@ -48,6 +48,8 @@ public class SurfaceChecker : MonoBehaviour
     public int biblestate = 0;
     public float bible_timer = 60f;
     public float clover_timer = 60f;
+    public GameObject GhostAppear;
+    public GameObject MiniJumpS;
     //private float time_spawn;
     void Start()
     {
@@ -243,10 +245,10 @@ public class SurfaceChecker : MonoBehaviour
             Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
         }else if (randAct == 2){
             Debug.Log("Appear Action");
-            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
+            Instantiate(GhostAppear, placementPose.position, placementPose.rotation); 
         }else {
             Debug.Log("JumpScare Action");
-            Instantiate(GhostHunter, placementPose.position, placementPose.rotation); 
+            Instantiate(MiniJumpS, placementPose.position, placementPose.rotation); 
 
         }
 
