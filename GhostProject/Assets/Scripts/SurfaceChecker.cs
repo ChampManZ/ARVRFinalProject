@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.Experimental.XR;
+using UnityEngine.SceneManagement;
 
 
 
@@ -28,12 +29,32 @@ public class SurfaceChecker : MonoBehaviour
     public GameObject GhostHunter;
     public float dummy_ghosttimer = 10;
     public int ishunting = 0;
+    public AudioSource playerSource;
+    public AudioClip flashsound;
+    public AudioClip grabsound;
+    public int grabInst = 0;
+    public AudioClip test1;
+    public GameObject flashPRef;
+    public GameObject grabPref;
+    public GameObject flashscreen;
+    public bool flashingS = false;
+    public bool haveLost = false;
+    public bool haveWin = false;
+    [SerializeField] private string gojumpLost;
+    [SerializeField] private string goghostdie;
+    public int cloverstate = 0;
+    public float cloverrate = 1f;
+    public int chestappear = 0;
+    public int biblestate = 0;
+    public float bible_timer = 60f;
+    public float clover_timer = 60f;
     //private float time_spawn;
     void Start()
     {
         //Instantiate(character, placementPose.position, placementPose.rotation);
         placementIndicator.transform.GetComponent<Renderer>().enabled = false;
         dummy_ghosttimer = 15;
+        //playerSource.PlayOneShot(test1);
         
         
     }
@@ -42,7 +63,43 @@ public class SurfaceChecker : MonoBehaviour
     void Update()
     {   UpdatePlacementPose();
         UpdatePlacementIndicator();
+        
+        if (haveLost == true){
+            SceneManager.LoadScene(gojumpLost);
+            haveLost = false;
+        }
+        if (haveWin == true){
+            SceneManager.LoadScene(goghostdie);
+            haveWin = false;
+        }
+        if(cloverstate == 0){
+            cloverrate = 1f;
+        }else{
+            cloverrate = 1.7f;
+        }
+
+        if (cloverstate == 1 && clover_timer > 0){
+            clover_timer -= Time.deltaTime;
+        }else{
+            cloverstate = 0;
+            //clover_timer = 60f;
+        }
+        if(bible_timer >0 && biblestate == 1){
+            bible_timer -= Time.deltaTime;
+        }else{
+            biblestate =0;
+        }
+
+    
+
         scoreCheck.text = "Collected: "+scorecal + " /10";
+
+        if(grabInst ==1){
+            Instantiate(grabPref);
+            //playerSource.PlayOneShot(grabsound);
+            grabInst = 0;
+        }
+
         if (using_crucifix == 0 && ishaveflash == 0){
             crucifixStatus.text = "Have No Crucifix";
         }else if(using_crucifix ==0 && ishaveflash == 1){
@@ -53,10 +110,10 @@ public class SurfaceChecker : MonoBehaviour
         }
         //placementIndicator.transform.GetComponent<Renderer>().enabled =false;
         if (timer_spawn >= 0){
-            timer_spawn -= Time.deltaTime;
+            timer_spawn -= Time.deltaTime*cloverrate;
         }
         if (ishaveflash == 0 && crucifix_timer >= 0){
-            crucifix_timer -= Time.deltaTime;
+            crucifix_timer -= Time.deltaTime*cloverrate;
 
         }
         if(crucifix_period >= 0){
@@ -67,14 +124,25 @@ public class SurfaceChecker : MonoBehaviour
             crucifix_period = -1;
         }
         if (ishunting == 0 && dummy_ghosttimer >= 0){
+            if (biblestate == 0){
             dummy_ghosttimer -= Time.deltaTime;
+            }
         }
         
         Debug.Log("check check check");
         if (scorecal >= 10){
             scorecal = 10;
             Debug.Log("win");
+            haveWin = true;
             
+        }
+        
+        if (flashingS == true){
+            flashscreen.SetActive(true);
+            flashingS = false;
+        }
+        if (flashingS == false){
+            flashscreen.SetActive(false);
         }
         
 
@@ -96,7 +164,11 @@ public class SurfaceChecker : MonoBehaviour
         }
     }
     public void useCrucifix(){
+        //playerSource.PlayOneShot(test1);
+        //playerSource.PlayOneShot(flashsound);
         if (ishaveflash == 1){
+            Instantiate(flashPRef);
+            //playerSource.PlayOneShot(flashsound);
             ishaveflash = 0;
             using_crucifix = 1;
             crucifix_period = 1;
