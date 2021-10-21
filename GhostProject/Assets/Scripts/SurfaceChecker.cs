@@ -74,6 +74,7 @@ public class SurfaceChecker : MonoBehaviour
             haveLost = false;
         }
         if (haveWin == true){
+            Debug.Log("win now");
             SceneManager.LoadScene(goghostdie);
             haveWin = false;
         }
