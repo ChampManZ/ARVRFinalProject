@@ -81,7 +81,7 @@ public class SurfaceChecker : MonoBehaviour
         if(cloverstate == 0){
             cloverrate = 1f;
         }else{
-            cloverrate = 1.7f;
+            cloverrate = 2f;
         }
 
         if (cloverstate == 1 && clover_timer > 0){
@@ -222,6 +222,10 @@ public class SurfaceChecker : MonoBehaviour
             //placementIndicator.transform.position = new Vector3(placementPose.position.x, placementPose.position.y, placementPose.position.z+10);
             if (timer_spawn <= 0){
                 Instantiate(character, placementPose.position, placementPose.rotation);
+                int chest_rander = UnityEngine.Random.Range(1,15);
+                if (chestappear == 1 && chest_rander == 1){
+                    Debug.Log("create chest");
+                }
                 //Instantiate(character, placementIndicator.transform.position, placementIndicator.transform.rotation);
                 //Instantiate(character, planeMaster.transform.position, planeMaster.transform.rotation);
                 timer_spawn = UnityEngine.Random.Range(20,50);
