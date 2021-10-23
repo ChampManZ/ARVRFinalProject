@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DistChecker : MonoBehaviour
+public class bibleController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //public TMPro.TextMeshProUGUI distCheck;
     public GameObject arCamera;
     //priva bool show_time = false;
     private bool timeer_show = false;
+    public float active_timer = 1.5f;
     [SerializeField] private float speed = 1;
     //public AudioSource omasource;
     //public AudioClip omagrab;
@@ -21,7 +20,7 @@ public class DistChecker : MonoBehaviour
         // ** make reference from object hierchy
         arCamera = GameObject.Find("AR Camera");
         // ** make obj invisable but still active
-        transform.GetComponent<Renderer>().enabled = false;
+        //transform.GetComponent<Renderer>().enabled = false;
         speed = 2;
         
     }
@@ -35,6 +34,10 @@ public class DistChecker : MonoBehaviour
         //     Instantiate(keyitem ,new Vector3( transform.position.x , transform.position.y,transform.position.z ), this.transform.rotation);
         //     spawn_time = 5;
         // }
+        active_timer -= Time.deltaTime;
+        if(active_timer <= 0){
+            timeer_show = true;
+        }
 
         Debug.Log("brabrabrbarb*****");
         // float Dist = Vector3.Distance(Camera.main.transform.position,me.transform.position);
@@ -66,17 +69,17 @@ public class DistChecker : MonoBehaviour
 
 
 
-        if (Dist < 2 && timeer_show == false){
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+1);
-        }
-        if (Dist >= 2){
-            timeer_show = true;
-            transform.GetComponent<Renderer>().enabled = true;
+        // if (Dist < 2 && timeer_show == false){
+        //     transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+1);
+        // }
+        // if (Dist >= 2){
+        //     timeer_show = true;
+        //     transform.GetComponent<Renderer>().enabled = true;
 
-        }
+        // }
         
 
-        if (Dist < 1.25 && timeer_show == true){
+        if (Dist < 2.5 && timeer_show == true) {
             transform.position = Vector3.MoveTowards(transform.position, arCamera.transform.position, Time.deltaTime * speed);
             // ** get public variables
             
@@ -86,8 +89,8 @@ public class DistChecker : MonoBehaviour
             Debug.Log("destroy item");
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
-            pScript.scorecal += 1;
-            pScript.grabInst =1;
+            pScript.grab_bible_state = 1;
+            pScript.biblestate =1;
             //omasource.PlayOneShot(omagrab);
             Destroy(gameObject);
 
@@ -98,8 +101,5 @@ public class DistChecker : MonoBehaviour
         // if(Dist <= 3 && pScript.using_crucifix == 1){
 
         // }
-        
-
-        
     }
 }

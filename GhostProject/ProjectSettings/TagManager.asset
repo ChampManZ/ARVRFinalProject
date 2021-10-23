@@ -8,6 +8,7 @@ TagManager:
   - Selectable
   - Crucifix
   - jump_plater
+  - opened
   layers:
   - Default
   - TransparentFX

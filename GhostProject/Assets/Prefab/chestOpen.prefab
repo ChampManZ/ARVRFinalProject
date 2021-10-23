@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &987307196207917613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200384398471522179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c2f1ce9415f4f28ac1ed721b68c666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  search_timer: 3
+  ald_open: 0
+  clover_obj: {fileID: 8424660275160322804, guid: c71dd66c40d040449baf9f732197efbd,
+    type: 3}
+  bible_obj: {fileID: 445530753579465783, guid: 820a4a63bfd90fa4faa40286c0c4057a,
+    type: 3}
+  sound_play_ald: 1
 --- !u!1001 &8490306956785174880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7,6 +26,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88690423821300614, guid: c6de0506615124d4c9369ea5f29baead,
+        type: 3}
+      propertyPath: openChest
+      value: 
+      objectReference: {fileID: 5200384398471522179}
     - target: {fileID: 1551080472914198206, guid: c6de0506615124d4c9369ea5f29baead,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -64,6 +88,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941506827919160409, guid: c6de0506615124d4c9369ea5f29baead,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941506827919160409, guid: c6de0506615124d4c9369ea5f29baead,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -115,7 +144,19 @@ PrefabInstance:
     - target: {fileID: 4465560094961413859, guid: c6de0506615124d4c9369ea5f29baead,
         type: 3}
       propertyPath: m_Name
-      value: chest
+      value: chestOpen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4465560094961413859, guid: c6de0506615124d4c9369ea5f29baead,
+        type: 3}
+      propertyPath: m_TagString
+      value: opened
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 88690423821300614, guid: c6de0506615124d4c9369ea5f29baead, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c6de0506615124d4c9369ea5f29baead, type: 3}
+--- !u!1 &5200384398471522179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4465560094961413859, guid: c6de0506615124d4c9369ea5f29baead,
+    type: 3}
+  m_PrefabInstance: {fileID: 8490306956785174880}
+  m_PrefabAsset: {fileID: 0}

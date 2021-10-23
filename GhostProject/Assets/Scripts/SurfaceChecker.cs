@@ -13,6 +13,7 @@ public class SurfaceChecker : MonoBehaviour
     public ARRaycastManager arRayCastMng;
     public TMPro.TextMeshProUGUI scoreCheck;
     public TMPro.TextMeshProUGUI crucifixStatus;
+    public TMPro.TextMeshProUGUI buffStatus;
     public int scorecal = 0;
     public bool canPlace;
     private Pose placementPose;
@@ -20,6 +21,8 @@ public class SurfaceChecker : MonoBehaviour
     public GameObject planeMaster;
     public GameObject character;
     public GameObject crucifix;
+    public GameObject chest;
+    public GameObject searching_sound;
     public bool placealt;
     public float timer_spawn = 5;
     public int ishaveflash = 0;
@@ -36,6 +39,7 @@ public class SurfaceChecker : MonoBehaviour
     public AudioClip test1;
     public GameObject flashPRef;
     public GameObject grabPref;
+    public GameObject chestopenPref;
     public GameObject flashscreen;
     public bool flashingS = false;
     public bool haveLost = false;
@@ -53,6 +57,14 @@ public class SurfaceChecker : MonoBehaviour
     public float life_timer;
     public int ext_hunt = 0;
     public int reduce_spawn = 0;
+    public int chest_open = 0;
+    public int grab_search = 0;
+    public GameObject grab_clover;
+    public GameObject grab_bible;
+    public int grab_clover_state = 0;
+    public int grab_bible_state = 0;
+    //public int using_buff = 0;
+
     //private float time_spawn;
     void Start()
     {
@@ -95,6 +107,13 @@ public class SurfaceChecker : MonoBehaviour
         }else{
             biblestate =0;
         }
+        if(biblestate == 0 && cloverstate ==0){
+            buffStatus.text = "Buff: No Buff";
+        }else if(cloverstate == 1){
+            buffStatus.text = "Buff: Lucky Time "+ System.Math.Round(clover_timer)+"s";
+        }else if(biblestate == 1){
+            buffStatus.text = "Buff: Safe Time "+System.Math.Round(bible_timer)+"s";
+        }
 
     
 
@@ -117,6 +136,22 @@ public class SurfaceChecker : MonoBehaviour
             Instantiate(grabPref);
             //playerSource.PlayOneShot(grabsound);
             grabInst = 0;
+        }
+        if(chest_open == 1){
+            Instantiate(chestopenPref);
+            chest_open = 0;
+        }
+        if(grab_search == 1){
+            Instantiate(searching_sound);
+            grab_search = 0;
+        }
+        if(grab_bible_state == 1){
+            Instantiate(grab_bible);
+            grab_bible_state = 0;
+        }
+        if(grab_clover_state == 1){
+            Instantiate(grab_clover);
+            grab_clover_state =0;
         }
 
         if (using_crucifix == 0 && ishaveflash == 0){
@@ -221,10 +256,16 @@ public class SurfaceChecker : MonoBehaviour
             //placementIndicator.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+10);
             //placementIndicator.transform.position = new Vector3(placementPose.position.x, placementPose.position.y, placementPose.position.z+10);
             if (timer_spawn <= 0){
-                Instantiate(character, placementPose.position, placementPose.rotation);
-                int chest_rander = UnityEngine.Random.Range(1,15);
-                if (chestappear == 1 && chest_rander == 1){
+                
+                int chest_rander = UnityEngine.Random.Range(1,2);
+                if (chestappear == 0 && chest_rander == 1){
+                    chestappear = 1;
+                    Debug.Log("creating chest");
+                    Instantiate(chest, placementPose.position, placementPose.rotation);
                     Debug.Log("create chest");
+
+                }else{
+                    Instantiate(character, placementPose.position, placementPose.rotation);
                 }
                 //Instantiate(character, placementIndicator.transform.position, placementIndicator.transform.rotation);
                 //Instantiate(character, planeMaster.transform.position, planeMaster.transform.rotation);
@@ -239,7 +280,10 @@ public class SurfaceChecker : MonoBehaviour
                 //crucifix_timer = UnityEngine.Random.Range(15,40);
                 ishunting = 1;
                 Debug.Log("Create Ghost");
-                randomGhostAct();
+                //if(biblestate ==0){
+                    randomGhostAct();
+                //}
+                
                  
 
             }

@@ -8,6 +8,7 @@ public class CrucifixController : MonoBehaviour
     public GameObject arCamera;
     //priva bool show_time = false;
     private bool timeer_show = false;
+    [SerializeField] private float speed = 1;
     //public AudioSource crusource;
     //public AudioClip crugrab;
 
@@ -20,6 +21,7 @@ public class CrucifixController : MonoBehaviour
         //crusource.PlayOneShot(crugrab);
         arCamera = GameObject.Find("AR Camera");
         transform.GetComponent<Renderer>().enabled = false;
+        speed = 2;
         
         
         //distCheck.text = "Hello Distance...";
@@ -71,7 +73,10 @@ public class CrucifixController : MonoBehaviour
 
         }
 
-        if (Dist < 1 && timeer_show == true){
+        if (Dist < 1.25 && timeer_show == true){
+            transform.position = Vector3.MoveTowards(transform.position, arCamera.transform.position, Time.deltaTime * speed);
+        }
+        if(Dist <= 0.1){
             Debug.Log("destroy crucifix");
             GameObject myPlayer = GameObject.Find("AR Session Origin");
             SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
@@ -80,6 +85,7 @@ public class CrucifixController : MonoBehaviour
             //crusource.PlayOneShot(crugrab);
             DestroyWithTag("Crucifix");
             Destroy(gameObject);
+
         }
         
 
