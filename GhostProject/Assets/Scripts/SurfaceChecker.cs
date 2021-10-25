@@ -68,6 +68,8 @@ public class SurfaceChecker : MonoBehaviour
     public int cover_done = 1;
     public GameObject cover_sound;
     public int cover_using =0;
+    public int heartbeating = 0;
+    public GameObject heartbeat_master;
     //public int using_buff = 0;
 
     //private float time_spawn;
@@ -161,6 +163,11 @@ public class SurfaceChecker : MonoBehaviour
         if(cover_using == 1){
             Instantiate(cover_sound);
             cover_using = 0;
+        }
+        if(heartbeating ==1){
+            Debug.Log("Say create heartbeat");
+            Instantiate(heartbeat_master);
+            heartbeating =0;
         }
 
         if (using_crucifix == 0 && ishaveflash == 0){
@@ -287,7 +294,7 @@ public class SurfaceChecker : MonoBehaviour
             //placementIndicator.transform.position = new Vector3(placementPose.position.x, placementPose.position.y, placementPose.position.z+10);
             if (timer_spawn <= 0){
                 
-                int chest_rander = UnityEngine.Random.Range(1,2);
+                int chest_rander = UnityEngine.Random.Range(1,5);
                 if (chestappear == 0 && chest_rander == 1){
                     chestappear = 1;
                     Debug.Log("creating chest");
@@ -334,6 +341,7 @@ public class SurfaceChecker : MonoBehaviour
     public void randomGhostAct(){
         int randAct = UnityEngine.Random.Range(1,4+ext_hunt);
         Debug.Log("random act of ghost event: "+ randAct);
+        heartbeating = 1;
         
         if (randAct == 1){
             

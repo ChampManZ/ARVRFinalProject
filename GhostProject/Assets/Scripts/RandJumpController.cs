@@ -61,8 +61,17 @@ public class RandJumpController : MonoBehaviour
             pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40-pScript.reduce_spawn);
             //js_one.SetActive(false);
             //js_two.SetActive(false);
+            Debug.Log("Say destroy heartbeat");
+            DestroyWithTag("heartbeater");
             Destroy(gameObject);
         }
         }
+    }
+    void DestroyWithTag (string destroyTag)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag(destroyTag);
+        foreach (GameObject oneObject in destroyObject)
+            Destroy (oneObject);
     }
 }

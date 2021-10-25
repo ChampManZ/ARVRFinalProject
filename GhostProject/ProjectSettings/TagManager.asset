@@ -9,6 +9,7 @@ TagManager:
   - Crucifix
   - jump_plater
   - opened
+  - heartbeater
   layers:
   - Default
   - TransparentFX

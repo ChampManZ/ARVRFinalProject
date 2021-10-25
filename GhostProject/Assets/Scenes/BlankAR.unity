@@ -8400,6 +8400,9 @@ MonoBehaviour:
   cover_sound: {fileID: 8739571586899838218, guid: ad01cfecc724b4857a5cc6e3bf40ff99,
     type: 3}
   cover_using: 0
+  heartbeating: 0
+  heartbeat_master: {fileID: 6183406549717446652, guid: c3fe3848490754a1790a7facdc861150,
+    type: 3}
 --- !u!114 &1659859601
 MonoBehaviour:
   m_ObjectHideFlags: 0

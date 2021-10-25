@@ -183,6 +183,8 @@ public class GhostHuntController : MonoBehaviour
                 Debug.Log("destroy item");
                 pScript.ishunting = 0;
                 pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40-pScript.reduce_spawn);
+                Debug.Log("Say destroy heartbeat");
+                DestroyWithTag("heartbeater");
                 Destroy(gameObject);
 
                 //playHuntSFXOnce = true;
@@ -197,5 +199,12 @@ public class GhostHuntController : MonoBehaviour
         
 
         
+    }
+    void DestroyWithTag (string destroyTag)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag(destroyTag);
+        foreach (GameObject oneObject in destroyObject)
+            Destroy (oneObject);
     }
 }
