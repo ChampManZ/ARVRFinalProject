@@ -74,7 +74,7 @@ public class bibleController : MonoBehaviour
         // }
         // if (Dist >= 2){
         //     timeer_show = true;
-        //     transform.GetComponent<Renderer>().enabled = true;
+        //     transform.GetComponent<Renderer>().enabled = true;   
 
         // }
         

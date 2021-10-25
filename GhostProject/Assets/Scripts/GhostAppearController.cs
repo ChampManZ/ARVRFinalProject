@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostAppearController : MonoBehaviour
 {
@@ -72,7 +73,8 @@ public class GhostAppearController : MonoBehaviour
 
             
         }
-        
+        GameObject myPlayer = GameObject.Find("AR Session Origin");
+        SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
 
         // if (Dist < 1 && timeer_show == true){
         //     Debug.Log("destroy item");
@@ -88,14 +90,19 @@ public class GhostAppearController : MonoBehaviour
         if (timeer_show == true){
             show_time += Time.deltaTime;
         }
-        if(show_time >= 5){
-            GameObject myPlayer = GameObject.Find("AR Session Origin");
-            SurfaceChecker pScript = myPlayer.GetComponent<SurfaceChecker>();
+        if(show_time >= 7){
+            
+
             pScript.ishunting = 0;
             pScript.dummy_ghosttimer = UnityEngine.Random.Range(20, 40-pScript.reduce_spawn);
             Destroy(gameObject);
             
 
+        }else if (show_time >= 3){
+            
+            if (pScript.cover_done != 1){
+                pScript.haveLost = true;
+            }
         }
 
         

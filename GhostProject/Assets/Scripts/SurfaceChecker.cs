@@ -63,6 +63,11 @@ public class SurfaceChecker : MonoBehaviour
     public GameObject grab_bible;
     public int grab_clover_state = 0;
     public int grab_bible_state = 0;
+    public GameObject cover_obj;
+    public int changingto = 0;
+    public int cover_done = 1;
+    public GameObject cover_sound;
+    public int cover_using =0;
     //public int using_buff = 0;
 
     //private float time_spawn;
@@ -153,6 +158,10 @@ public class SurfaceChecker : MonoBehaviour
             Instantiate(grab_clover);
             grab_clover_state =0;
         }
+        if(cover_using == 1){
+            Instantiate(cover_sound);
+            cover_using = 0;
+        }
 
         if (using_crucifix == 0 && ishaveflash == 0){
             crucifixStatus.text = "Have No Crucifix";
@@ -205,6 +214,7 @@ public class SurfaceChecker : MonoBehaviour
         
     }
 
+
     public void SpawnCharacter(){
         //Debug.Log("Spawn Check");
         if(canPlace){
@@ -217,6 +227,26 @@ public class SurfaceChecker : MonoBehaviour
 
         }
     }
+    public void CoverToggle(){
+        Debug.Log("enter toggle");
+        if (cover_done == 1){
+            Debug.Log("enter now its"+ cover_done +" changing to 2 from"+changingto );
+            changingto = 2;
+            cover_using = 1;
+            cover_done = 0;
+        }if (cover_done == 2){
+            Debug.Log("enter now its"+ cover_done +" changing to 1 from"+changingto );
+            changingto =1;
+            cover_using = 1;
+            cover_done = 0;
+        }
+    }
+    // public void coverUp(){
+
+    // }
+    // public void coverDown(){
+        
+    // }
     public void useCrucifix(){
         //playerSource.PlayOneShot(test1);
         //playerSource.PlayOneShot(flashsound);
