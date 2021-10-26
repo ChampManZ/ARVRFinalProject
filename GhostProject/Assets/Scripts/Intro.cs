@@ -18,10 +18,14 @@ public class Intro : MonoBehaviour
     [SerializeField] private string ingameName;
     // [SerializeField] Button startGame;
 
+    public SpriteRenderer spriteRenderer;
+    public Sprite firstSprite;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,8 +40,8 @@ public class Intro : MonoBehaviour
         
         if (timer >= 4)
         {
+            spriteRenderer.sprite = firstSprite;
             introText.text = "There is a woman who is deeply in love with her boyfriend.";
-            
         }
 
         if (timer >= 9)
