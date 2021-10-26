@@ -152,7 +152,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arsubsystems": {
-      "version": "file:C:/Users/phuch/Downloads/com.unity.xr.arsubsystems-master/com.unity.xr.arsubsystems-master",
+      "version": "file:/Users/nnp/Downloads/com.unity.xr.arsubsystems-master",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -165,7 +165,7 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.subsystemregistration": "1.0.6"
+        "com.unity.subsystemregistration": "1.0.5"
       },
       "url": "https://packages.unity.com"
     },
