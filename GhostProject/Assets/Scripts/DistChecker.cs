@@ -22,7 +22,7 @@ public class DistChecker : MonoBehaviour
         arCamera = GameObject.Find("AR Camera");
         // ** make obj invisable but still active
         transform.GetComponent<Renderer>().enabled = false;
-        speed = 2;
+        speed = 3;
         
     }
 

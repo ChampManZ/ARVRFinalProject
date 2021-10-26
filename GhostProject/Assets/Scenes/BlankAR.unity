@@ -5508,7 +5508,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1173318912}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -8417,9 +8417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 3237044616888973623, guid: 7add6ab38bdc24c24a119dcef6dfd05e,
-    type: 3}
-  m_DetectionMode: -1
+  m_PlanePrefab: {fileID: 0}
+  m_DetectionMode: 0
 --- !u!114 &1659859602
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class CrucifixController : MonoBehaviour
         //crusource.PlayOneShot(crugrab);
         arCamera = GameObject.Find("AR Camera");
         transform.GetComponent<Renderer>().enabled = false;
-        speed = 2;
+        speed = 3;
         
         
         //distCheck.text = "Hello Distance...";
